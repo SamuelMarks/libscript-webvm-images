@@ -1,11 +1,17 @@
 libscript-webvm-images
 ----------------------
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache-2.0-yellow.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache%202.0-blue)](https://opensource.org/licenses/Apache-2.0)
 
 For details see:
 
   - https://cheerpx.io/docs/guides/custom-images
   - https://github.com/leaningtech/alpine-image (which this greatly inherits from; and is somewhat a fork)
+
+## Build dependencies
+
+  - Docker
+  - buildah
+  - podman (you probably don't need docker with this installed!)
 
 ## Usage
 

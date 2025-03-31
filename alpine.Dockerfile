@@ -50,9 +50,12 @@ RUN apk add xpdf rofi gvim gedit xterm pcmanfm feh polybar thunar sgt-puzzles@te
 RUN sed -i 's/Exec=sgt-/Exec=/' /usr/share/applications/sgt-*.desktop
 
 # config folder
-ADD https://github.com/leaningtech/alpine-image/archive/refs/heads/master.zip /tmp/orig
-RUN install --chown=user:user /tmp/orig/config /home/user/.config && \
-  # xpdf config goes directly in the home dir
-  mv /home/user/.config/.xpdfrc /home/user/
+ADD https://github.com/leaningtech/alpine-image/archive/refs/heads/master.zip /tmp/alpine-image.zip
+RUN unzip /tmp/alpine-image.zip -d /tmp/
+RUN ls -R /tmp/alpine-image-master/config && \
+    mv /tmp/alpine-image-master/config /home/user/.config && \
+    chown -R user:user /home/user/.config && \
+    # xpdf config goes directly in the home dir
+    mv /home/user/.config/.xpdfrc /home/user/
 
 CMD [ "/bin/sh" ]
